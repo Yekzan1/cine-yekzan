@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ciné-Yekzan - Sonic 3 le Film</title>
+    <script>
+      // Redirect 404s to the index.html
+      var segmentCount = 0,
+        l = window.location;
+      if (l.pathname.split('/').length > 2) {
+        segmentCount = l.pathname.split('/').length - 2;
+      }
+      var reloadURL = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/cine-yekzan/';
+      for (var i = 0; i < segmentCount; i++) {
+        reloadURL += '../';
+      }
+      reloadURL += '?p=' + l.pathname.slice(1).replace(/\//g, '~');
+      l.replace(reloadURL);
+    </script>
+  </head>
+  <body></body>
+</html>
